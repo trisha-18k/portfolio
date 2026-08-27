@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Trisha Kalamkuntla - Portfolio</title>
+  <title>Trisha's Portfolio</title>
   <style>
     body {
       font-family: Arial, sans-serif;
-      background-color: #f0f8ff;
+      background: linear-gradient(to right, #f0f8ff, #e6ffe6);
       margin: 0;
       padding: 0;
       color: #333;
@@ -14,25 +14,38 @@
       background-color: #2e8b57;
       color: white;
       text-align: center;
-      padding: 30px;
+      padding: 40px;
     }
     header h1 {
       margin: 0;
-      font-size: 36px;
+      font-size: 40px;
     }
-    header p {
+    button {
+      display: block;
+      margin: 30px auto;
+      padding: 15px 30px;
       font-size: 18px;
+      background-color: #8b0000;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #b22222;
     }
     section {
+      display: none; /* hidden until button click */
       padding: 20px;
       margin: 20px;
       background-color: #ffffff;
       border-radius: 10px;
       box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      animation: fadeIn 1s;
     }
     h2 {
-      color: #8b0000;
-      border-bottom: 2px solid #2e8b57;
+      color: #2e8b57;
+      border-bottom: 2px solid #8b0000;
       padding-bottom: 5px;
     }
     ul {
@@ -52,21 +65,34 @@
     a:hover {
       text-decoration: underline;
     }
+    @keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity: 1;}
+    }
   </style>
+  <script>
+    function showPortfolio() {
+      const sections = document.querySelectorAll("section");
+      sections.forEach(sec => sec.style.display = "block");
+      document.getElementById("showBtn").style.display = "none";
+    }
+  </script>
 </head>
 <body>
   <header>
-    <h1>Trisha Kalamkuntla</h1>
+    <h1>🌟 Trisha's Portfolio 🌟</h1>
     <p>MCA Student | Aspiring Software Developer</p>
   </header>
 
+  <button id="showBtn" onclick="showPortfolio()">Click Here</button>
+
   <section>
-    <h2>About Me</h2>
+    <h2>👩‍💻 About Me</h2>
     <p>I am an MCA student passionate about coding, problem-solving, and building full-stack applications.</p>
   </section>
 
   <section>
-    <h2>Skills</h2>
+    <h2>🛠 Skills</h2>
     <ul>
       <li>Python</li>
       <li>MySQL</li>
@@ -78,7 +104,7 @@
   </section>
 
   <section>
-    <h2>Projects</h2>
+    <h2>📂 Projects</h2>
     <div class="project">
       <h3>Hangman Game (Python)</h3>
       <p>A fun word-guessing game built using Python.</p>
@@ -91,29 +117,32 @@
   </section>
 
   <section>
-    <h2>Certifications</h2>
+    <h2>🎓 Education</h2>
     <ul>
-      <li>Qualified in NPTEL – Joy of Computing Using Python (75%)</li>
-    </ul>
-  </section>
-
-  <section>
-    <h2>Internship</h2>
-    <p>Completed internship on Python at Pearl Labs and Foundry AI Labs, working with 10 AI platforms.</p>
-  </section>
-
-  <section>
-    <h2>Education</h2>
-    <ul>
-      <li>B.Sc in Vasavi Degree College</li>
       <li>MCA in RVR & JC College of Engineering</li>
+      <li>B.Sc in Vasavi Degree College</li>
       <li>Intermediate (MPC) in AP Model Junior College</li>
       <li>10th in AP Model School</li>
     </ul>
   </section>
 
   <section>
-    <h2>Contact</h2>
+    <h2>📜 Certifications</h2>
+    <ul>
+      <li>NPTEL – Joy of Computing Using Python (75%)</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>💼 Internships</h2>
+    <ul>
+      <li>Python Internship at Pearl Labs and Foundry AI Labs (worked with 10 AI platforms)</li>
+      <li>Soft Skills Internship at Unnati Foundation</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>📞 Contact</h2>
     <p>Email: <a href="mailto:trishakalamkuntla@gmail.com">trishakalamkuntla@gmail.com</a></p>
     <p>LinkedIn: <a href="https://www.linkedin.com/balatrisha" target="_blank">linkedin.com/balatrisha</a></p>
     <p>GitHub: <a href="https://github.com/trisha-18k" target="_blank">github.com/trisha-18k</a></p>
