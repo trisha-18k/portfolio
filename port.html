@@ -1,151 +1,1180 @@
+```html
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Trisha's Portfolio</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: linear-gradient(to right, #f0f8ff, #e6ffe6);
-      margin: 0;
-      padding: 0;
-      color: #333;
-    }
-    header {
-      background-color: #2e8b57;
-      color: white;
-      text-align: center;
-      padding: 40px;
-    }
-    header h1 {
-      margin: 0;
-      font-size: 40px;
-    }
-    button {
-      display: block;
-      margin: 30px auto;
-      padding: 15px 30px;
-      font-size: 18px;
-      background-color: #8b0000;
-      color: white;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-    }
-    button:hover {
-      background-color: #b22222;
-    }
-    section {
-      display: none; /* hidden until button click */
-      padding: 20px;
-      margin: 20px;
-      background-color: #ffffff;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-      animation: fadeIn 1s;
-    }
-    h2 {
-      color: #2e8b57;
-      border-bottom: 2px solid #8b0000;
-      padding-bottom: 5px;
-    }
-    ul {
-      list-style-type: square;
-      padding-left: 20px;
-    }
-    .project {
-      background-color: #fffacd;
-      padding: 10px;
-      margin: 10px 0;
-      border-radius: 8px;
-    }
-    a {
-      color: #2e8b57;
-      text-decoration: none;
-    }
-    a:hover {
-      text-decoration: underline;
-    }
-    @keyframes fadeIn {
-      from {opacity: 0;}
-      to {opacity: 1;}
-    }
-  </style>
-  <script>
-    function showPortfolio() {
-      const sections = document.querySelectorAll("section");
-      sections.forEach(sec => sec.style.display = "block");
-      document.getElementById("showBtn").style.display = "none";
-    }
-  </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Trisha's Portfolio</title>
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #f5f7fb;
+            color: #222;
+            transition: 0.4s;
+        }
+
+        /* ================= NAVBAR ================= */
+
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 15px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(255,255,255,0.92);
+            backdrop-filter: blur(12px);
+            box-shadow: 0 2px 15px rgba(0,0,0,0.08);
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: 800;
+            color: #6c63ff;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 25px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #6c63ff;
+        }
+
+        #themeBtn {
+            border: none;
+            background: #6c63ff;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 17px;
+        }
+
+        /* ================= HERO ================= */
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 100px 20px 50px;
+            background:
+                radial-gradient(circle at top left, #dcd9ff, transparent 35%),
+                radial-gradient(circle at bottom right, #c9f4ff, transparent 35%),
+                #f5f7fb;
+        }
+
+        .hero-content {
+            max-width: 850px;
+        }
+
+        .profile-icon {
+            width: 120px;
+            height: 120px;
+            margin: auto;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #6c63ff, #00bcd4);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 55px;
+            box-shadow: 0 15px 35px rgba(108,99,255,0.3);
+        }
+
+        .hero h1 {
+            font-size: 55px;
+            margin-top: 25px;
+            font-weight: 800;
+        }
+
+        .hero h1 span {
+            color: #6c63ff;
+        }
+
+        .hero h2 {
+            margin-top: 10px;
+            font-size: 25px;
+            color: #555;
+        }
+
+        #typing {
+            color: #6c63ff;
+            font-weight: 600;
+        }
+
+        .hero p {
+            margin: 20px auto;
+            max-width: 650px;
+            color: #666;
+            line-height: 1.8;
+        }
+
+        .click-btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 14px 35px;
+            border-radius: 30px;
+            background: linear-gradient(135deg, #6c63ff, #00bcd4);
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            box-shadow: 0 10px 25px rgba(108,99,255,0.3);
+            transition: 0.3s;
+        }
+
+        .click-btn:hover {
+            transform: translateY(-4px) scale(1.03);
+        }
+
+        /* ================= SECTIONS ================= */
+
+        section {
+            padding: 90px 8%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 35px;
+            color: #222;
+        }
+
+        .section-title p {
+            color: #777;
+            margin-top: 8px;
+        }
+
+        /* ================= ABOUT ================= */
+
+        .about-container {
+            max-width: 900px;
+            margin: auto;
+            background: white;
+            padding: 35px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.07);
+            text-align: center;
+            line-height: 1.9;
+        }
+
+        /* ================= CARDS ================= */
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .card {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.07);
+            transition: 0.4s;
+            border-top: 4px solid #6c63ff;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+        }
+
+        .card h3 {
+            color: #6c63ff;
+            margin-bottom: 15px;
+        }
+
+        .card p {
+            color: #666;
+            line-height: 1.7;
+        }
+
+        .project-link {
+            display: inline-block;
+            margin-top: 15px;
+            text-decoration: none;
+            color: #6c63ff;
+            font-weight: 600;
+        }
+
+        /* ================= SKILLS ================= */
+
+        .skill-container {
+            max-width: 900px;
+            margin: auto;
+        }
+
+        .skill {
+            margin-bottom: 20px;
+        }
+
+        .skill-title {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 7px;
+            font-weight: 600;
+        }
+
+        .progress {
+            height: 10px;
+            background: #ddd;
+            border-radius: 20px;
+            overflow: hidden;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg,#6c63ff,#00bcd4);
+            border-radius: 20px;
+            width: 0;
+            transition: width 1.5s ease;
+        }
+
+        /* ================= EDUCATION ================= */
+
+        .timeline {
+            max-width: 850px;
+            margin: auto;
+            border-left: 3px solid #6c63ff;
+            padding-left: 30px;
+        }
+
+        .education-item {
+            background: white;
+            padding: 25px;
+            margin-bottom: 25px;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.06);
+            position: relative;
+        }
+
+        .education-item::before {
+            content: "";
+            position: absolute;
+            left: -42px;
+            top: 25px;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: #6c63ff;
+            border: 4px solid #f5f7fb;
+        }
+
+        .education-item h3 {
+            color: #6c63ff;
+        }
+
+        .education-item p {
+            margin-top: 7px;
+            color: #666;
+        }
+
+        /* ================= LIST ================= */
+
+        .list-card {
+            max-width: 850px;
+            margin: auto;
+            background: white;
+            padding: 35px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.07);
+        }
+
+        .list-card ul {
+            padding-left: 25px;
+        }
+
+        .list-card li {
+            margin: 15px 0;
+            line-height: 1.7;
+        }
+
+        /* ================= CONTACT ================= */
+
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+            gap: 25px;
+            max-width: 900px;
+            margin: auto;
+        }
+
+        .contact-card {
+            background: white;
+            padding: 30px;
+            text-align: center;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.07);
+        }
+
+        .contact-card i {
+            font-size: 35px;
+            color: #6c63ff;
+            margin-bottom: 15px;
+        }
+
+        .contact-card a {
+            color: #555;
+            text-decoration: none;
+            word-break: break-word;
+        }
+
+        /* ================= FOOTER ================= */
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            background: #171717;
+            color: white;
+        }
+
+        footer span {
+            color: #6c63ff;
+        }
+
+        /* ================= TOP BUTTON ================= */
+
+        #topBtn {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            width: 45px;
+            height: 45px;
+            border: none;
+            border-radius: 50%;
+            background: #6c63ff;
+            color: white;
+            cursor: pointer;
+            display: none;
+            z-index: 999;
+        }
+
+        /* ================= DARK MODE ================= */
+
+        body.dark {
+            background: #10131a;
+            color: white;
+        }
+
+        body.dark nav {
+            background: rgba(20,23,30,0.95);
+        }
+
+        body.dark .nav-links a {
+            color: #ddd;
+        }
+
+        body.dark .hero {
+            background:
+                radial-gradient(circle at top left,#252050,transparent 35%),
+                radial-gradient(circle at bottom right,#073d46,transparent 35%),
+                #10131a;
+        }
+
+        body.dark .hero h2,
+        body.dark .hero p,
+        body.dark .section-title p {
+            color: #bbb;
+        }
+
+        body.dark .section-title h2 {
+            color: white;
+        }
+
+        body.dark .card,
+        body.dark .about-container,
+        body.dark .education-item,
+        body.dark .list-card,
+        body.dark .contact-card {
+            background: #191d26;
+            color: white;
+        }
+
+        body.dark .card p,
+        body.dark .education-item p,
+        body.dark .contact-card a {
+            color: #bbb;
+        }
+
+        body.dark .education-item::before {
+            border-color: #10131a;
+        }
+
+        body.dark .progress {
+            background: #333;
+        }
+
+        /* ================= RESPONSIVE ================= */
+
+        @media(max-width: 768px) {
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 40px;
+            }
+
+            .hero h2 {
+                font-size: 20px;
+            }
+
+            section {
+                padding: 70px 5%;
+            }
+        }
+    </style>
 </head>
+
 <body>
-  <header>
-    <h1>🌟 Trisha's Portfolio 🌟</h1>
-    <p>MCA Student | Aspiring Software Developer</p>
-  </header>
 
-  <button id="showBtn" onclick="showPortfolio()">Click Here</button>
+<!-- ================= NAVBAR ================= -->
 
-  <section>
-    <h2>👩‍💻 About Me</h2>
-    <p>I am an MCA student passionate about coding, problem-solving, and building full-stack applications.</p>
-  </section>
+<nav>
+    <div class="logo">Trisha.</div>
 
-  <section>
-    <h2>🛠 Skills</h2>
-    <ul>
-      <li>Python</li>
-      <li>MySQL</li>
-      <li>HTML & CSS</li>
-      <li>Leadership</li>
-      <li>Time Management</li>
-      <li>Communication</li>
+    <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#internships">Internships</a></li>
+        <li><a href="#contact">Contact</a></li>
     </ul>
-  </section>
 
-  <section>
-    <h2>📂 Projects</h2>
-    <div class="project">
-      <h3>Hangman Game (Python)</h3>
-      <p>A fun word-guessing game built using Python.</p>
+    <button id="themeBtn" onclick="toggleTheme()">
+        <i class="fas fa-moon"></i>
+    </button>
+</nav>
+
+
+<!-- ================= HERO ================= -->
+
+<header class="hero">
+
+    <div class="hero-content">
+
+        <div class="profile-icon">
+            <i class="fas fa-user"></i>
+        </div>
+
+        <h1>Welcome to <span>Trisha's Portfolio</span> 👩‍💻</h1>
+
+        <h2>
+            I am a <span id="typing"></span>
+        </h2>
+
+        <p>
+            Welcome to my personal portfolio! Explore my projects,
+            technical skills, education, certifications and internship
+            experiences.
+        </p>
+
+        <a href="#about" class="click-btn">
+            Click Here 🚀
+        </a>
+
     </div>
-    <div class="project">
-      <h3>Pharmacy Management System</h3>
-      <p>Full Stack project using Spring Boot, React JS, MySQL, and Postman.</p>
-      <p><a href="https://github.com/Nagur-14/MedicineRepository.git" target="_blank">View on GitHub</a></p>
+
+</header>
+
+
+<!-- ================= ABOUT ================= -->
+
+<section id="about">
+
+    <div class="section-title">
+        <h2>👩‍💻 About Me</h2>
+        <p>Get to know me</p>
     </div>
-  </section>
 
-  <section>
-    <h2>🎓 Education</h2>
-    <ul>
-      <li>MCA in RVR & JC College of Engineering</li>
-      <li>B.Sc in Vasavi Degree College</li>
-      <li>Intermediate (MPC) in AP Model Junior College</li>
-      <li>10th in AP Model School</li>
-    </ul>
-  </section>
+    <div class="about-container">
 
-  <section>
-    <h2>📜 Certifications</h2>
-    <ul>
-      <li>NPTEL – Joy of Computing Using Python (75%)</li>
-    </ul>
-  </section>
+        <p>
+            Hello! I'm <strong>Trisha</strong>, a passionate technology
+            enthusiast with an interest in software development and
+            full-stack application development.
+        </p>
 
-  <section>
-    <h2>💼 Internships</h2>
-    <ul>
-      <li>Python Internship at Pearl Labs and Foundry AI Labs (worked with 10 AI platforms)</li>
-      <li>Soft Skills Internship at Unnati Foundation</li>
-    </ul>
-  </section>
+        <br>
 
-  <section>
-    <h2>📞 Contact</h2>
-    <p>Email: <a href="mailto:trishakalamkuntla@gmail.com">trishakalamkuntla@gmail.com</a></p>
-    <p>LinkedIn: <a href="https://www.linkedin.com/balatrisha" target="_blank">linkedin.com/balatrisha</a></p>
-    <p>GitHub: <a href="https://github.com/trisha-18k" target="_blank">github.com/trisha-18k</a></p>
-  </section>
+        <p>
+            I have experience working with Python, MySQL, HTML and CSS,
+            along with exposure to full-stack technologies such as
+            Spring Boot, React JS, MySQL and Postman.
+        </p>
+
+        <br>
+
+        <p>
+            I enjoy creating practical applications, learning new
+            technologies and continuously improving my technical and
+            communication skills.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- ================= PROJECTS ================= -->
+
+<section id="projects">
+
+    <div class="section-title">
+        <h2>🚀 My Projects</h2>
+        <p>Some of my development work</p>
+    </div>
+
+    <div class="cards">
+
+        <!-- Project 1 -->
+
+        <div class="card">
+
+            <h3>🎮 Hangman Game</h3>
+
+            <p>
+                A Python-based Hangman Game where users try to guess
+                the hidden word within a limited number of attempts.
+                This project demonstrates Python programming,
+                conditions, loops and user interaction.
+            </p>
+
+            <p>
+                <strong>Technology:</strong> Python
+            </p>
+
+        </div>
+
+
+        <!-- Project 2 -->
+
+        <div class="card">
+
+            <h3>💊 Pharmacy Management System</h3>
+
+            <p>
+                A full-stack Pharmacy Management System designed
+                to manage medicine-related information efficiently.
+                The project uses Spring Boot for the backend,
+                React JS for the frontend and MySQL for database
+                management.
+            </p>
+
+            <p>
+                <strong>Technologies:</strong>
+                Spring Boot, React JS, MySQL, Postman
+            </p>
+
+            <a class="project-link"
+               href="https://github.com/Nagur-14/MedicineRepository.git"
+               target="_blank">
+
+                <i class="fab fa-github"></i>
+                View Project on GitHub →
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= SKILLS ================= -->
+
+<section id="skills">
+
+    <div class="section-title">
+
+        <h2>🛠️ Skills</h2>
+
+        <p>My technical and professional skills</p>
+
+    </div>
+
+
+    <div class="skill-container">
+
+        <div class="skill">
+
+            <div class="skill-title">
+                <span>🐍 Python</span>
+                <span>90%</span>
+            </div>
+
+            <div class="progress">
+                <div class="progress-bar" data-width="90%"></div>
+            </div>
+
+        </div>
+
+
+        <div class="skill">
+
+            <div class="skill-title">
+                <span>🗄️ MySQL</span>
+                <span>85%</span>
+            </div>
+
+            <div class="progress">
+                <div class="progress-bar" data-width="85%"></div>
+            </div>
+
+        </div>
+
+
+        <div class="skill">
+
+            <div class="skill-title">
+                <span>🌐 HTML</span>
+                <span>90%</span>
+            </div>
+
+            <div class="progress">
+                <div class="progress-bar" data-width="90%"></div>
+            </div>
+
+        </div>
+
+
+        <div class="skill">
+
+            <div class="skill-title">
+                <span>🎨 CSS</span>
+                <span>85%</span>
+            </div>
+
+            <div class="progress">
+                <div class="progress-bar" data-width="85%"></div>
+            </div>
+
+        </div>
+
+
+        <div class="skill">
+
+            <div class="skill-title">
+                <span>🤝 Communication</span>
+                <span>90%</span>
+            </div>
+
+            <div class="progress">
+                <div class="progress-bar" data-width="90%"></div>
+            </div>
+
+        </div>
+
+
+        <div class="skill">
+
+            <div class="skill-title">
+                <span>👑 Leadership</span>
+                <span>85%</span>
+            </div>
+
+            <div class="progress">
+                <div class="progress-bar" data-width="85%"></div>
+            </div>
+
+        </div>
+
+
+        <div class="skill">
+
+            <div class="skill-title">
+                <span>⏰ Time Management</span>
+                <span>90%</span>
+            </div>
+
+            <div class="progress">
+                <div class="progress-bar" data-width="90%"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= EDUCATION ================= -->
+
+<section id="education">
+
+    <div class="section-title">
+
+        <h2>🎓 Education</h2>
+
+        <p>My academic journey</p>
+
+    </div>
+
+
+    <div class="timeline">
+
+
+        <!-- MCA -->
+
+        <div class="education-item">
+
+            <h3>🎓 MCA</h3>
+
+            <p>
+                <strong>RVR & JC College of Engineering</strong>
+            </p>
+
+            <p>
+                Master of Computer Applications
+            </p>
+
+        </div>
+
+
+        <!-- BSC -->
+
+        <div class="education-item">
+
+            <h3>🎓 BSC</h3>
+
+            <p>
+                <strong>Vasavi Degree College</strong>
+            </p>
+
+            <p>
+                Bachelor of Science
+            </p>
+
+        </div>
+
+
+        <!-- INTERMEDIATE -->
+
+        <div class="education-item">
+
+            <h3>📚 Intermediate (MPC)</h3>
+
+            <p>
+                <strong>AP Model Junior College</strong>
+            </p>
+
+            <p>
+                Mathematics, Physics and Chemistry
+            </p>
+
+        </div>
+
+
+        <!-- 10TH -->
+
+        <div class="education-item">
+
+            <h3>🏫 10th Class</h3>
+
+            <p>
+                <strong>AP Model School</strong>
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= CERTIFICATIONS ================= -->
+
+<section id="certifications">
+
+    <div class="section-title">
+
+        <h2>🏆 Certifications</h2>
+
+        <p>My achievements and certifications</p>
+
+    </div>
+
+
+    <div class="cards">
+
+        <div class="card">
+
+            <h3>🐍 NPTEL Certification</h3>
+
+            <p>
+                Qualified in NPTEL certification for
+                <strong>"The Joy of Computing Using Python"</strong>
+                with a score of <strong>75%</strong>.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= INTERNSHIPS ================= -->
+
+<section id="internships">
+
+    <div class="section-title">
+
+        <h2>💼 Internships</h2>
+
+        <p>My internship experience</p>
+
+    </div>
+
+
+    <div class="list-card">
+
+        <ul>
+
+            <li>
+                🐍 Completed an internship on
+                <strong>Python</strong> from
+                <strong>Pearl Labs</strong>.
+            </li>
+
+            <li>
+                🤖 Worked with
+                <strong>Foundry AI Labs</strong> using
+                <strong>10 AI platforms</strong>.
+            </li>
+
+            <li>
+                🤝 Completed an internship on
+                <strong>Soft Skills</strong> from
+                <strong>Unnati Foundation</strong>.
+            </li>
+
+        </ul>
+
+    </div>
+
+</section>
+
+
+<!-- ================= CONTACT ================= -->
+
+<section id="contact">
+
+    <div class="section-title">
+
+        <h2>📞 Contact Me</h2>
+
+        <p>Let's connect!</p>
+
+    </div>
+
+
+    <div class="contact-container">
+
+
+        <div class="contact-card">
+
+            <i class="fas fa-envelope"></i>
+
+            <h3>📧 Email</h3>
+
+            <br>
+
+            <a href="mailto:trishakalamkuntla@gmail.com">
+                trishakalamkuntla@gmail.com
+            </a>
+
+        </div>
+
+
+        <div class="contact-card">
+
+            <i class="fab fa-linkedin"></i>
+
+            <h3>💼 LinkedIn</h3>
+
+            <br>
+
+            <a href="https://www.linkedin.com/balatrisha"
+               target="_blank">
+
+                View LinkedIn Profile
+
+            </a>
+
+        </div>
+
+
+        <div class="contact-card">
+
+            <i class="fab fa-github"></i>
+
+            <h3>💻 GitHub</h3>
+
+            <br>
+
+            <a href="https://github.com/trisha-18k"
+               target="_blank">
+
+                View GitHub Profile
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+    <p>
+        © 2026 <span>Trisha's Portfolio</span>
+        | Designed with ❤️ using HTML, CSS & JavaScript
+    </p>
+
+</footer>
+
+
+<!-- ================= TOP BUTTON ================= -->
+
+<button id="topBtn" onclick="goTop()">
+    <i class="fas fa-arrow-up"></i>
+</button>
+
+
+<!-- ================= JAVASCRIPT ================= -->
+
+<script>
+
+    /* ================= TYPING EFFECT ================= */
+
+    const roles = [
+        "Python Developer 🐍",
+        "Full Stack Developer 💻",
+        "Web Developer 🌐",
+        "Technology Enthusiast 🚀"
+    ];
+
+    let roleIndex = 0;
+    let charIndex = 0;
+    let deleting = false;
+
+    const typingElement = document.getElementById("typing");
+
+    function typeEffect() {
+
+        const currentRole = roles[roleIndex];
+
+        if (!deleting) {
+
+            typingElement.textContent =
+                currentRole.substring(0, charIndex + 1);
+
+            charIndex++;
+
+            if (charIndex === currentRole.length) {
+
+                deleting = true;
+
+                setTimeout(typeEffect, 1500);
+
+                return;
+            }
+
+        } else {
+
+            typingElement.textContent =
+                currentRole.substring(0, charIndex - 1);
+
+            charIndex--;
+
+            if (charIndex === 0) {
+
+                deleting = false;
+
+                roleIndex++;
+
+                if (roleIndex === roles.length) {
+                    roleIndex = 0;
+                }
+
+            }
+
+        }
+
+        setTimeout(typeEffect, deleting ? 50 : 100);
+    }
+
+    typeEffect();
+
+
+    /* ================= DARK MODE ================= */
+
+    function toggleTheme() {
+
+        document.body.classList.toggle("dark");
+
+        const button = document.getElementById("themeBtn");
+
+        if (document.body.classList.contains("dark")) {
+
+            button.innerHTML =
+                '<i class="fas fa-sun"></i>';
+
+        } else {
+
+            button.innerHTML =
+                '<i class="fas fa-moon"></i>';
+
+        }
+    }
+
+
+    /* ================= SKILL ANIMATION ================= */
+
+    const progressBars =
+        document.querySelectorAll(".progress-bar");
+
+    function animateSkills() {
+
+        progressBars.forEach(bar => {
+
+            const position =
+                bar.getBoundingClientRect().top;
+
+            const screenHeight =
+                window.innerHeight;
+
+            if (position < screenHeight - 50) {
+
+                bar.style.width =
+                    bar.getAttribute("data-width");
+
+            }
+
+        });
+
+    }
+
+    window.addEventListener("scroll", animateSkills);
+
+    animateSkills();
+
+
+    /* ================= TOP BUTTON ================= */
+
+    const topButton =
+        document.getElementById("topBtn");
+
+    window.addEventListener("scroll", function () {
+
+        if (window.scrollY > 400) {
+
+            topButton.style.display = "block";
+
+        } else {
+
+            topButton.style.display = "none";
+
+        }
+
+    });
+
+
+    function goTop() {
+
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+
+    }
+
+
+    /* ================= ACTIVE NAVIGATION ================= */
+
+    const sections =
+        document.querySelectorAll("section");
+
+    const navLinks =
+        document.querySelectorAll(".nav-links a");
+
+    window.addEventListener("scroll", () => {
+
+        let current = "";
+
+        sections.forEach(section => {
+
+            const sectionTop =
+                section.offsetTop - 150;
+
+            if (window.scrollY >= sectionTop) {
+
+                current = section.getAttribute("id");
+
+            }
+
+        });
+
+        navLinks.forEach(link => {
+
+            link.style.color = "";
+
+            if (link.getAttribute("href") === "#" + current) {
+
+                link.style.color = "#6c63ff";
+
+            }
+
+        });
+
+    });
+
+</script>
+
 </body>
 </html>
+```
